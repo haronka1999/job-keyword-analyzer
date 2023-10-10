@@ -1,5 +1,8 @@
-# %%
-# Importing libraries and specifying URL and Chrome driver path
+## ------------------------------------------ ##
+## -------- NOT NECESSARY BACKUP------------- ##
+## ------------------------------------------ ##
+
+
 import time
 import requests
 from selenium import webdriver
