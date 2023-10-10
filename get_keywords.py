@@ -1,7 +1,8 @@
 import spacy
 import yake
 from keybert import KeyBERT
-    
+from rake_nltk import Rake
+import nltk
 """
 RESPONSIBLE FOR APPLYING LANGUAGE MODELS TO THE PREPROCESSED TEXT
 """
@@ -33,6 +34,16 @@ def get_keywords_by_KeyBERT(jobs):
     keywords = kw_model.extract_keywords(jobs, keyphrase_ngram_range=(1, 2), stop_words='english')
     for i in keywords:
         print(i)
+
+def get_keywords_by_Rake (text):    
+    r = Rake(min_length=1, max_length=3, include_repeated_phrases=False)
+    r.extract_keywords_from_text(text)
+    file =  open("resources/rake_nltk.txt", 'w');
+    for rating, keyword in r.get_ranked_phrases_with_scores():
+        if rating > 5:      
+            file.write(f'({keyword}, {rating})\n')
+    print(f"The Rake tuples  has been saved to resources/rake_nltk")
+    file.close()
 
 
 

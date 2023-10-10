@@ -4,7 +4,7 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import nltk
 import random
-
+import utils
 """
 Notes:
 1. This is the main file this should be called every time
@@ -40,16 +40,16 @@ file_path = "resources/job_descriptions.txt"
 
 ## ------------------------------------------ ##
 ## ------------ SECOND PART ----------------- ##
-## ------ EXTRACTING JOB DESCRIPTIONS ------- ##
+## ---EXTRACTING JOB DESCRIPTIONS FROM FILE-- ##
 ## ------------------------------------------ ##
 
-with open('job_descriptions.txt', 'r', encoding='utf-8') as f:
+with open('resources/job_descriptions.txt', 'r', encoding='utf-8') as f:
     lines = f.readlines()
 
 lines = [line.strip() for line in lines]
 job_description_list = [element for element in lines if element.strip()]
 job_description_string =  ' '.join(job_description_list)
-preprocessed_JD = get_keywords.preprocess_data(job_description_string)
+preprocessed_JD = utils.preprocess_data(job_description_string)
 
 
 ## ------------------------------------------ ##
@@ -57,27 +57,31 @@ preprocessed_JD = get_keywords.preprocess_data(job_description_string)
 ## ------ APPLYING LANGUAGE MODELSS --------- ##
 ## ------------------------------------------ ##
 
-print("spacy:")
-keywords_spacy = get_keywords.get_keywords_by_spacy(preprocessed_JD)
+get_keywords.get_keywords_by_KeyBERT(preprocessed_JD)
 
-wordcloud = WordCloud(width=800, height=800, background_color='black', 
-                      stopwords=nltk.corpus.stopwords.words('english'),
-                      min_font_size=10).generate(' '.join(keywords_spacy))
+
+# print("spacy:")
+# keywords_spacy = get_keywords.get_keywords_by_spacy(preprocessed_JD)
+
+# wordcloud = WordCloud(width=800, height=800, background_color='black', 
+#                       stopwords=nltk.corpus.stopwords.words('english'),
+#                       min_font_size=10).generate(' '.join(keywords_spacy))
 
 
 ## ------------------------------------------ ##
 ## ------------ FORTH PART ------------------ ##
 ## ------ PLOTTING AND IMG CREATING --------- ##
 ## ------------------------------------------ ##
-plt.figure(figsize=(10, 10), facecolor='Black')
-plt.imshow(wordcloud)
-plt.axis("off")
-plt.tight_layout(pad=0)
 
-# assigning file path
-p_name = '_'.join('Java'.split())
-f_path = f'resources/images/{p_name}-{str(len(lines))}_{random.randint(10000,99999)}.png'
-# saving png
-plt.savefig(f_path)
-# printing the plot
-plt.show()
+# plt.figure(figsize=(10, 10), facecolor='Black')
+# plt.imshow(wordcloud)
+# plt.axis("off")
+# plt.tight_layout(pad=0)
+
+# # assigning file path
+# p_name = '_'.join('Java'.split())
+# f_path = f'resources/images/{p_name}-{str(len(lines))}_{random.randint(10000,99999)}.png'
+# # saving png
+# plt.savefig(f_path)
+# # printing the plot
+# plt.show()
