@@ -1,12 +1,8 @@
 import spacy
 import yake
-import nltk
 from keybert import KeyBERT
 import unicodedata
 import preprocess
-from wordcloud import WordCloud
-import matplotlib.pyplot as plt
-
 
 def read_jobs():
     with open('../resources/job_descriptions.txt', 'r', encoding='utf-8') as f:
@@ -64,31 +60,6 @@ def get_keywords_by_KeyBERT(jobs):
         print(i)
 
 
-jobs_string = read_jobs()
-jobs_string = preprocess_data(jobs_string)
 
-print("spacy:")
-keywords = get_keywords_by_spacy(jobs_string)
-
-wordcloud = WordCloud(width=800, height=800,
-                      background_color='black',
-                      stopwords=nltk.corpus.stopwords.words('english'),
-                      min_font_size=10
-                      ).generate(' '.join(keywords))
-
-
-# plotting the WordCloud image with matplotlib``
-plt.figure(figsize=(10, 10), facecolor='Black')
-plt.imshow(wordcloud)
-plt.axis("off")
-plt.tight_layout(pad=0)
-
-# assigning file path
-p_name = '_'.join('Java'.split())
-f_path = f'{p_name}-{100}_c.png'
-# saving png
-plt.savefig(f_path)
-# printing the plot
-plt.show()
 
 
