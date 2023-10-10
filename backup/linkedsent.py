@@ -1,7 +1,7 @@
 ## ------------------------------------------ ##
 ## -------- NOT NECESSARY BACKUP------------- ##
 ## ------------------------------------------ ##
-
+# old -main function it will scrape and save the job descriptions
 
 import time
 import requests

@@ -3,12 +3,11 @@ import string
 from resources.constants import CONTRACTION_MAP
 import nltk
 from nltk.tokenize import ToktokTokenizer
-import num2words
 import inflect
 
-tokenizer = ToktokTokenizer()
-stopword_list = nltk.corpus.stopwords.words('english')
-
+"""
+FUNCTIONS FOR PREPROCESSING THE DATA 
+"""
 
 def expand_contractions(text, map=CONTRACTION_MAP):
     pattern = re.compile('({})'.format('|'.join(map.keys())), flags=re.IGNORECASE | re.DOTALL)
@@ -78,6 +77,9 @@ def get_stem(text):
 
 
 def remove_stopwords(text):
+    tokenizer = ToktokTokenizer()
+    stopword_list = nltk.corpus.stopwords.words('english')
+
     # convert sentence into token of words
     tokens = tokenizer.tokenize(text)
     tokens = [token.strip() for token in tokens]

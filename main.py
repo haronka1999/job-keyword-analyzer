@@ -10,7 +10,7 @@ Notes:
 1. This is the main file this should be called every time
 THe other scripts are just helpers which needs to be migrated
 
-    linkedsent: old -main function it will scrape and save the job descriptions
+    
     getkeywords:  after keywords are retrieved with linkedsent we will apply specific language models to the data    
     preprocess: contains helper functions which needs to be preprocessed before we are apply to the model
 
@@ -20,8 +20,7 @@ THe other scripts are just helpers which needs to be migrated
     2. Than invoke scrape_job_descriptions: This will scrape from the links the job description part
 """
 
-file_path = "job_descriptions.txt"
-
+file_path = "resources/job_descriptions.txt"
 
 ## ------------------------------------------ ##
 ## ------------ FIRST PART ------------------ ##
@@ -44,29 +43,32 @@ file_path = "job_descriptions.txt"
 ## ------ EXTRACTING JOB DESCRIPTIONS ------- ##
 ## ------------------------------------------ ##
 
-
 with open('job_descriptions.txt', 'r', encoding='utf-8') as f:
     lines = f.readlines()
 
 lines = [line.strip() for line in lines]
 job_description_list = [element for element in lines if element.strip()]
-new_job_description_str =  ' '.join(job_description_list)
+job_description_string =  ' '.join(job_description_list)
+preprocessed_JD = get_keywords.preprocess_data(job_description_string)
 
 
-jobs_string = get_keywords.preprocess_data(new_job_description_str)
+## ------------------------------------------ ##
+## ------------ THIRD PART ------------------ ##
+## ------ APPLYING LANGUAGE MODELSS --------- ##
+## ------------------------------------------ ##
 
 print("spacy:")
-keywords = get_keywords.get_keywords_by_spacy(jobs_string)
+keywords_spacy = get_keywords.get_keywords_by_spacy(preprocessed_JD)
 
-wordcloud = WordCloud(width=800, height=800,
-                      background_color='black',
+wordcloud = WordCloud(width=800, height=800, background_color='black', 
                       stopwords=nltk.corpus.stopwords.words('english'),
-                      min_font_size=10
-                      ).generate(' '.join(keywords))
+                      min_font_size=10).generate(' '.join(keywords_spacy))
 
 
-
-# plotting the WordCloud image with matplotlib``
+## ------------------------------------------ ##
+## ------------ FORTH PART ------------------ ##
+## ------ PLOTTING AND IMG CREATING --------- ##
+## ------------------------------------------ ##
 plt.figure(figsize=(10, 10), facecolor='Black')
 plt.imshow(wordcloud)
 plt.axis("off")
