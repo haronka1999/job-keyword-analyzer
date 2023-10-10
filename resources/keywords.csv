@@ -1,0 +1,931 @@
+,Label,Keyword
+0,PERSON,java 70100
+1,ORG,the institute of social
+2,GPE,switzerland
+3,DATE,at least 3 years
+4,DATE,at least 3 years
+5,PERSON,jsf2javascriptphp sql
+6,PERSON,apache kafka
+7,NORP,english german
+8,TIME,working hours
+9,CARDINAL,up to
+10,CARDINAL,50
+11,PERSON,martin
+12,CARDINAL,031
+13,CARDINAL,18
+14,DATE,today
+15,TIME,hours
+16,NORP,hrispmunibech
+17,PERSON,jetzt bewerben
+18,CARDINAL,one
+19,CARDINAL,thousands
+20,DATE,the last 28 years
+21,ORG,microsoft
+22,CARDINAL,2
+23,LANGUAGE,english
+24,TIME,seconds
+25,PERSON,phd
+26,DATE,3 years
+27,NORP,english
+28,DATE,scala
+29,DATE,annual
+30,LANGUAGE,english
+31,LANGUAGE,english
+32,NORP,german
+33,PERSON,iris
+34,PERSON,java j2ee
+35,ORDINAL,3rd
+36,DATE,at least three years
+37,ORG,java programming
+38,ORG,java core
+39,CARDINAL,at least one
+40,LANGUAGE,english
+41,DATE,at least 34 years
+42,NORP,swiss
+43,ORG,allart13 of eu regulation 67916 gdpr
+44,DATE,daily
+45,GPE,dnaif
+46,GPE,geneva
+47,ORDINAL,2nd
+48,ORDINAL,3rd
+49,ORDINAL,3rd
+50,DATE,3 years
+51,ORG,java architectures spring
+52,PERSON,kafka
+53,NORP,french
+54,LANGUAGE,english
+55,NORP,french
+56,NORP,english
+57,GPE,switzerland
+58,GPE,france
+59,GPE,mexico
+60,DATE,1992
+61,DATE,today
+62,CARDINAL,220
+63,CARDINAL,8
+64,GPE,geneva
+65,GPE,zurich
+66,GPE,paris
+67,FAC,skopje mexico durango
+68,CARDINAL,three
+69,PERSON,java
+70,CARDINAL,8
+71,CARDINAL,maven
+72,CARDINAL,at least 5
+73,NORP,chf7000000
+74,PERSON,alex koos
+75,CARDINAL,41
+76,DATE,35 96
+77,GPE,zurich
+78,PERSON,java
+79,PERSON,jpa knowhow
+80,LANGUAGE,german
+81,LANGUAGE,english
+82,PERSON,lucene maven pytorch skill
+83,PERSON,javascript es6
+84,CARDINAL,120
+85,ORDINAL,first
+86,ORDINAL,second
+87,CARDINAL,between two and three
+88,ORDINAL,first
+89,ORDINAL,second
+90,NORP,german
+91,NORP,german
+92,LANGUAGE,english
+93,DATE,two days
+94,CARDINAL,4 5
+95,GPE,zurich
+96,GPE,switzerland
+97,PERSON,java
+98,GPE,zurich
+99,GPE,switzerland
+100,CARDINAL,one
+101,GPE,switzerland
+102,PERSON,java knowledge
+103,DATE,spring spring
+104,CARDINAL,four
+105,CARDINAL,more than 70000
+106,CARDINAL,more than 50
+107,CARDINAL,one
+108,CARDINAL,100
+109,GPE,geneva
+110,DATE,september 1st
+111,CARDINAL,2year
+112,CARDINAL,2
+113,ORG,java programming
+114,DATE,3 years
+115,NORP,french
+116,NORP,english
+117,NORP,german
+118,GPE,zephyr
+119,GPE,jira languages
+120,NORP,french
+121,LANGUAGE,english
+122,NORP,german
+123,CARDINAL,approximately 100
+124,DATE,01092023
+125,DATE,30042025
+126,DATE,10 weeks
+127,DATE,between june 12 august 18 2023
+128,DATE,at least one quarter
+129,DATE,august 2023
+130,TIME,fulltime hours
+131,DATE,10 weeks
+132,GPE,us
+133,DATE,april 30 2023
+134,GPE,geneva
+135,PERSON,zurich basela
+136,DATE,3 years
+137,LANGUAGE,english
+138,GPE,geneva
+139,PERSON,zurich basela
+140,DATE,at least 3 years
+141,LANGUAGE,english
+142,PERSON,java 70100
+143,ORG,the institute of social
+144,GPE,switzerland
+145,DATE,at least 3 years
+146,DATE,at least 3 years
+147,PERSON,jsf2javascriptphp sql
+148,PERSON,apache kafka
+149,NORP,english german
+150,TIME,working hours
+151,CARDINAL,up to
+152,CARDINAL,50
+153,PERSON,martin
+154,CARDINAL,031
+155,CARDINAL,18
+156,DATE,today
+157,TIME,hours
+158,NORP,hrispmunibech
+159,DATE,10 years
+160,DATE,5 years
+161,CARDINAL,0aifqq56dt
+162,CARDINAL,one
+163,CARDINAL,thousands
+164,DATE,the last 28 years
+165,LANGUAGE,english
+166,DATE,marchapril 2023
+167,PERSON,phd
+168,PERSON,mpc fhe
+169,DATE,2 years
+170,GPE,switzerland
+171,GPE,the united states
+172,CARDINAL,2000000
+173,GPE,geneva
+174,GPE,switzerland
+175,GPE,geneva
+176,DATE,between 3 5 years
+177,ORG,java software
+178,GPE,switzerland
+179,DATE,at least 12 years
+180,DATE,at least 7 years
+181,ORG,handson java development
+182,DATE,at least 5 years
+183,PERSON,java
+184,ORG,microsoft
+185,ORG,postman docker
+186,ORG,java
+187,CARDINAL,one
+188,GPE,geneva
+189,TIME,needsyour
+190,ORG,java
+191,PERSON,jpa jms
+192,CARDINAL,10
+193,GPE,openwt
+194,GPE,geneva
+195,GPE,zurich
+196,DATE,at least 2 years
+197,PERSON,java
+198,NORP,german
+199,LANGUAGE,english
+200,NORP,french
+201,DATE,3 working days
+202,PERSON,java
+203,PERSON,java java
+204,DATE,24 and 31 spring
+205,NORP,db
+206,NORP,swiss
+207,DATE,19603
+208,GPE,eu
+209,PERSON,6792016
+210,ORG,java software
+211,DATE,spring
+212,ORG,microsoft
+213,CARDINAL,four
+214,CARDINAL,more than 70000
+215,CARDINAL,more than 50
+216,CARDINAL,one
+217,CARDINAL,one
+218,CARDINAL,thousands
+219,DATE,the last 28 years
+220,ORG,microsoft
+221,CARDINAL,2
+222,LANGUAGE,english
+223,CARDINAL,two
+224,CARDINAL,one
+225,ORDINAL,first
+226,CARDINAL,247
+227,ORDINAL,first
+228,GPE,switzerland
+229,ORDINAL,24th
+230,GPE,zurich
+231,CARDINAL,14
+232,CARDINAL,one
+233,LANGUAGE,english
+234,NORP,german
+235,GPE,zurich
+236,NORP,swiss
+237,GPE,switzerland
+238,NORP,swiss
+239,CARDINAL,two
+240,CARDINAL,one
+241,ORDINAL,first
+242,CARDINAL,247
+243,ORDINAL,first
+244,GPE,switzerland
+245,GPE,zurich
+246,PERSON,java
+247,CARDINAL,millions
+248,DATE,3 years
+249,ORG,java building
+250,NORP,german
+251,NORP,english
+252,NORP,swiss
+253,GPE,switzerland
+254,NORP,swiss
+255,CARDINAL,450000
+256,CARDINAL,over 3 million
+257,NORP,swiss
+258,CARDINAL,1000
+259,DATE,the end of june 2022
+260,MONEY,over 50 billion swiss francs
+261,CARDINAL,more than 520000
+262,CARDINAL,130
+263,CARDINAL,100
+264,PERSON,java spring
+265,PERSON,javascript typescript
+266,DATE,2 years
+267,DATE,spring
+268,PERSON,linux docker
+269,LANGUAGE,english
+270,NORP,french
+271,GPE,switzerland
+272,DATE,2017
+273,ORDINAL,first
+274,DATE,today
+275,GPE,london
+276,GPE,berlin
+277,GPE,zurich
+278,CARDINAL,22
+279,DATE,2022
+280,PERSON,jonathan golden
+281,GPE,luciana
+282,LOC,europe
+283,CARDINAL,72
+284,CARDINAL,26
+285,CARDINAL,25
+286,CARDINAL,22
+287,CARDINAL,3
+288,CARDINAL,3
+289,PERSON,eng cto
+290,ORG,meteor
+291,GPE,github
+292,CARDINAL,one
+293,ORDINAL,first
+294,GPE,switzerland
+295,LOC,europe
+296,DATE,25 days
+297,PERSON,java
+298,ORG,java technologies
+299,DATE,at least 3 years
+300,PRODUCT,db nann mongodb andor
+301,NORP,swiss
+302,ORG,allart13 of eu regulation 67916
+303,GPE,zurich
+304,DATE,5 years
+305,NORP,english
+306,NORP,german
+307,DATE,2017
+308,PERSON,henry markram
+309,CARDINAL,70 million
+310,DATE,5 years
+311,ORG,jargon
+312,LANGUAGE,english
+313,NORP,french
+314,NORP,german
+315,CARDINAL,up to
+316,CARDINAL,20
+317,ORDINAL,30mn
+318,CARDINAL,60mn
+319,ORDINAL,30mn
+320,ORG,google
+321,DATE,5 years
+322,DATE,scala
+323,PERSON,java
+324,DATE,three or more years
+325,FAC,the jvm java
+326,PERSON,kotlin scala
+327,NORP,english
+328,NORP,german
+329,DATE,five weeks
+330,DATE,every friday
+331,DATE,every day
+332,DATE,fridays
+333,DATE,one year
+334,CARDINAL,one
+335,NORP,swiss
+336,PERSON,java
+337,GPE,java
+338,DATE,spring
+339,ORDINAL,first
+340,GPE,morewe
+341,ORG,youwe
+342,LOC,teleworkingwe
+343,CARDINAL,2a02 c207
+344,DATE,2011 6863 1 39d709ee3eeea0d83c8d79b54067c81 20230320 173420
+345,GPE,openwt
+346,GPE,geneva
+347,GPE,zurich
+348,DATE,at least 2 years
+349,PERSON,java
+350,LANGUAGE,german
+351,LANGUAGE,english
+352,DATE,several years
+353,NORP,german
+354,NORP,english
+355,PERSON,kafka
+356,ORG,java spring
+357,PERSON,javascript rest big
+358,GPE,camunda
+359,LANGUAGE,german
+360,LANGUAGE,english
+361,TIME,working hours
+362,GPE,openwt
+363,GPE,geneva
+364,GPE,zurich
+365,DATE,at least 2 years
+366,PERSON,java
+367,NORP,german
+368,LANGUAGE,english
+369,NORP,french
+370,DATE,3 working days
+371,GPE,openwt
+372,GPE,geneva
+373,GPE,zurich
+374,DATE,at least 2 years
+375,PERSON,java
+376,LANGUAGE,german
+377,LANGUAGE,english
+378,PERSON,java j2ee
+379,GPE,geneva
+380,GPE,switzerland
+381,LOC,europe
+382,ORG,java
+383,PERSON,java j2ee
+384,GPE,geneva
+385,GPE,switzerland
+386,LANGUAGE,english
+387,ORG,sql code
+388,GPE,java
+389,CARDINAL,maven
+390,LANGUAGE,english
+391,CARDINAL,41
+392,CARDINAL,818
+393,GPE,switzerland
+394,NORP,itt
+395,CARDINAL,80
+396,CARDINAL,500
+397,CARDINAL,more than 38000
+398,DATE,every day
+399,CARDINAL,more than 150
+400,ORG,java ee
+401,DATE,at least 3 years
+402,CARDINAL,one
+403,NORP,german
+404,NORP,english
+405,CARDINAL,one
+406,CARDINAL,thousands
+407,DATE,the last 28 years
+408,DATE,3 years
+409,CARDINAL,10
+410,CARDINAL,25
+411,GPE,openwt
+412,GPE,geneva
+413,GPE,zurich
+414,DATE,at least 2 years
+415,PERSON,java
+416,LANGUAGE,german
+417,LANGUAGE,english
+418,DATE,several years
+419,NORP,german
+420,CARDINAL,60
+421,NORP,swiss
+422,NORP,european
+423,GPE,openwt
+424,GPE,geneva
+425,GPE,zurich
+426,DATE,at least 2 years
+427,PERSON,java
+428,NORP,german
+429,LANGUAGE,english
+430,NORP,french
+431,DATE,3 working days
+432,GPE,openwt
+433,GPE,geneva
+434,GPE,zurich
+435,DATE,at least 2 years
+436,PERSON,java
+437,LANGUAGE,german
+438,LANGUAGE,english
+439,DATE,tomorrow
+440,ORG,customersa
+441,GPE,geneva
+442,PERSON,java
+443,NORP,english
+444,PERSON,baer
+445,NORP,german
+446,LANGUAGE,english
+447,DATE,several years
+448,PERSON,db sql knowhow
+449,DATE,several years
+450,DATE,vacation days
+451,DATE,vacation week
+452,GPE,singapore
+453,GPE,india
+454,GPE,zurich
+455,CARDINAL,one
+456,CARDINAL,8
+457,LANGUAGE,english
+458,CARDINAL,four
+459,CARDINAL,more than 70000
+460,CARDINAL,more than 50
+461,CARDINAL,one
+462,GPE,zurich
+463,ORG,java
+464,DATE,12 month
+465,DATE,1 day per week
+466,TIME,hourly
+467,NORP,german
+468,LANGUAGE,english
+469,TIME,working hours
+470,ORG,java
+471,GPE,switzerland
+472,DATE,35 years
+473,PERSON,java spring
+474,LANGUAGE,english
+475,CARDINAL,100
+476,DATE,today
+477,CARDINAL,41
+478,CARDINAL,818
+479,CARDINAL,hundreds
+480,GPE,switzerland
+481,CARDINAL,experis
+482,CARDINAL,3
+483,CARDINAL,100
+484,CARDINAL,100
+485,DATE,the year
+486,LOC,asia
+487,DATE,2021
+488,CARDINAL,20
+489,GPE,singapore
+490,GPE,hong kong
+491,GPE,vietnam
+492,GPE,us
+493,DATE,months
+494,DATE,over 2000
+495,DATE,january 2021
+496,DATE,at least 10 years
+497,DATE,at least 3 years
+498,GPE,vietnam
+499,GPE,singapore
+500,GPE,hong kong
+501,TIME,office hours
+502,DATE,annual
+503,CARDINAL,2x
+504,DATE,30 years
+505,CARDINAL,47500
+506,CARDINAL,more than 6500
+507,DATE,2005
+508,CARDINAL,450
+509,CARDINAL,100
+510,NORP,swiss
+511,PERSON,java
+512,PERSON,java j2ee spring
+513,ORG,boot container
+514,NORP,french
+515,LANGUAGE,english
+516,NORP,french
+517,PERSON,java
+518,DATE,days
+519,PERSON,java spring
+520,GPE,zurich
+521,GPE,switzerland
+522,LOC,silicon valley usa
+523,ORG,gcp
+524,DATE,daily
+525,TIME,overnight
+526,PERSON,java springot
+527,NORP,swiss
+528,ORG,allart13 of eu regulation 67916 gdpr
+529,PERSON,java java
+530,DATE,ee spring
+531,ORDINAL,first
+532,CARDINAL,8319
+533,GPE,openwt
+534,GPE,geneva
+535,GPE,zurich
+536,PERSON,java
+537,DATE,spring
+538,NORP,german
+539,LANGUAGE,english
+540,NORP,french
+541,DATE,3 working days one
+542,PERSON,java developeruber unseren kunden
+543,PERSON,java
+544,ORG,weblogic server knowledge
+545,CARDINAL,2
+546,PERSON,json network
+547,DATE,7421
+548,ORG,google
+549,DATE,5 years
+550,ORG,java
+551,ORG,experis academy linkedin martyna
+552,ORDINAL,first
+553,DATE,the final year
+554,GPE,switzerland
+555,LANGUAGE,english
+556,LANGUAGE,english
+557,CARDINAL,one
+558,NORP,german
+559,NORP,french
+560,NORP,italian
+561,CARDINAL,1
+562,CARDINAL,2
+563,CARDINAL,3
+564,DATE,2023
+565,PERSON,java
+566,GPE,switzerland
+567,ORDINAL,3month
+568,PERSON,javanetuber unseren kunden
+569,LANGUAGE,english
+570,NORP,french
+571,NORP,german
+572,DATE,7422
+573,GPE,switzerland
+574,DATE,tomorrow
+575,CARDINAL,140 million
+576,ORG,google
+577,ORDINAL,first
+578,DATE,at least three months
+579,PERSON,java back
+580,DATE,80100
+581,ORG,java developer m w
+582,DATE,01062023
+583,PERSON,java kotlin
+584,CARDINAL,4
+585,PERSON,kafka helm
+586,ORG,camunda
+587,NORP,german
+588,LANGUAGE,english
+589,GPE,st gallen
+590,NORP,german
+591,NORP,english
+592,ORG,java backend developer banking location
+593,DATE,80100 startdate
+594,DATE,june
+595,DATE,september 2023 end date 31122023
+596,CARDINAL,41
+597,CARDINAL,41
+598,CARDINAL,760
+599,DATE,77 01
+600,DATE,9001 2015
+601,GPE,germany
+602,PERSON,irelanditech
+603,DATE,1997
+604,DATE,12 months
+605,CARDINAL,100
+606,DATE,several years
+607,DATE,3 years
+608,CARDINAL,60
+609,CARDINAL,at least two
+610,DATE,2020
+611,DATE,2 years
+612,LANGUAGE,english
+613,NORP,german
+614,CARDINAL,62304
+615,ORG,fda
+616,GPE,switzerland
+617,LOC,europe
+618,CARDINAL,110000
+619,CARDINAL,100
+620,LOC,europe
+621,GPE,110k
+622,PERSON,gracieumatrio scala
+623,GPE,switzerland
+624,GPE,zurich
+625,GPE,switzerland
+626,CARDINAL,100
+627,GPE,waltham
+628,GPE,basel
+629,GPE,cambridge
+630,GPE,san francisco
+631,ORG,ga
+632,GPE,us
+633,GPE,waltham
+634,GPE,athens
+635,GPE,san francisco
+636,GPE,cambridge
+637,CARDINAL,one
+638,PERSON,javascript css
+639,DATE,3 years
+640,PERSON,chai
+641,ORDINAL,second
+642,CARDINAL,up to
+643,CARDINAL,50000
+644,DATE,annual
+645,CARDINAL,over 150
+646,PRODUCT,100k
+647,PRODUCT,115k
+648,DATE,2 days
+649,ORG,gamp5
+650,LANGUAGE,english
+651,NORP,german
+652,DATE,several years
+653,DATE,vacation days
+654,DATE,vacation week
+655,GPE,switzerland
+656,PERSON,java java
+657,DATE,ee spring
+658,NORP,german
+659,GPE,switzerland
+660,NORP,german
+661,GPE,zurich
+662,NORP,german
+663,PERSON,java andor
+664,PERSON,kotlin
+665,PERSON,residual brooch
+666,PERSON,kafka
+667,ORG,kanban
+668,DATE,at least 23 years
+669,NORP,english
+670,CARDINAL,100
+671,NORP,smilewe
+672,CARDINAL,076
+673,CARDINAL,341
+674,CARDINAL,30
+675,CARDINAL,58
+676,DATE,6 8005
+677,GPE,zurich
+678,DATE,at least 3 years
+679,GPE,us
+680,PERSON,prof anastasia
+681,TIME,hours
+682,PERSON,prof martin
+683,ORG,scala prof mike franklin cocreator
+684,ORG,spark dr alon halevy
+685,CARDINAL,two
+686,GPE,switzerland
+687,ORDINAL,firstly
+688,LANGUAGE,english
+689,NORP,french
+690,NORP,greek
+691,NORP,portuguese
+692,PERSON,java andor
+693,PERSON,kotlin
+694,PERSON,jmh apache jmeter container
+695,DATE,2 to 4 months
+696,DATE,2 to 4 months
+697,DATE,more than 2 months
+698,DATE,2 months
+699,PERSON,json schema json schema
+700,PERSON,json schema
+701,PERSON,java excelpowerbi
+702,DATE,6 months
+703,DATE,the 21st century
+704,NORP,fabian
+705,NORP,german
+706,NORP,english
+707,CARDINAL,one
+708,NORP,french
+709,NORP,italian
+710,CARDINAL,5
+711,DATE,day one
+712,CARDINAL,five
+713,DATE,25 days
+714,DATE,daily
+715,DATE,spring
+716,NORP,swiss
+717,ORG,allart13 of eu regulation 67916
+718,GPE,openwt
+719,GPE,geneva
+720,GPE,zurich
+721,NORP,german
+722,LANGUAGE,english
+723,NORP,french
+724,DATE,3 working days
+725,ORG,microsoft
+726,CARDINAL,hundreds
+727,CARDINAL,thousands
+728,CARDINAL,millions
+729,DATE,every day
+730,PRODUCT,500s
+731,CARDINAL,thousands
+732,ORG,the wall street journal
+733,CARDINAL,63
+734,PERSON,patrick
+735,PERSON,john collision
+736,GPE,github
+737,PERSON,daniel gross entrepreneur
+738,ORG,github uber
+739,DATE,3 years
+740,DATE,python 3 years
+741,DATE,2 years
+742,DATE,2 years
+743,DATE,1 years
+744,CARDINAL,one
+745,LOC,north america
+746,LOC,europe
+747,DATE,20 years
+748,CARDINAL,100
+749,CARDINAL,1k
+750,CARDINAL,2xyear
+751,DATE,spring spring
+752,GPE,maven
+753,NORP,german
+754,DATE,march 2023
+755,DATE,6 months
+756,DATE,23 days
+757,GPE,zurich
+758,CARDINAL,80
+759,PERSON,unseren kunden
+760,LANGUAGE,english
+761,NORP,french
+762,NORP,german
+763,GPE,zurich
+764,LANGUAGE,german
+765,LANGUAGE,english
+766,LANGUAGE,french
+767,LANGUAGE,english
+768,NORP,english
+769,PERSON,ihre chance
+770,NORP,diese
+771,NORP,arvr
+772,CARDINAL,3d
+773,DATE,13 years
+774,PERSON,java
+775,PERSON,technology javaj2ee
+776,PERSON,java
+777,ORG,java
+778,PERSON,javaj2ee
+779,PERSON,javaj2ee
+780,PERSON,javaj2ee
+781,DATE,spring
+782,LANGUAGE,english
+783,NORP,german
+784,CARDINAL,46
+785,DATE,three decades
+786,DATE,12month contract day
+787,CARDINAL,960
+788,GPE,geneva
+789,DATE,12months
+790,PERSON,java sql
+791,ORG,apps nocode
+792,LANGUAGE,french
+793,LANGUAGE,english
+794,NORP,german
+795,LANGUAGE,english
+796,GPE,switzerland
+797,PERSON,java se
+798,CARDINAL,11
+799,CARDINAL,11
+800,DATE,3 days
+801,DATE,2 days per week
+802,ORG,java
+803,GPE,switzerland
+804,DATE,810 years
+805,PERSON,java
+806,DATE,spring
+807,LANGUAGE,english
+808,CARDINAL,100
+809,DATE,today
+810,CARDINAL,41
+811,CARDINAL,818
+812,CARDINAL,hundreds
+813,GPE,switzerland
+814,CARDINAL,experis
+815,GPE,us
+816,GPE,switzerland
+817,DATE,summer 2023
+818,CARDINAL,3rdparty
+819,DATE,at least 5 years
+820,DATE,8 to 10 years
+821,ORG,java programming
+822,PERSON,soaprestful jee microservices
+823,CARDINAL,one
+824,NORP,french
+825,LANGUAGE,english
+826,LANGUAGE,english
+827,DATE,at least five years
+828,DATE,13 months
+829,DATE,2 days
+830,NORP,english
+831,PERSON,baer
+832,PERSON,baer
+833,PERSON,baer
+834,PERSON,baer
+835,PERSON,javascript typescript
+836,PERSON,kafka
+837,DATE,2021
+838,GPE,uk
+839,GPE,us
+840,DATE,4 years
+841,DATE,2 years
+842,CARDINAL,20
+843,ORG,java andor
+844,ORG,java
+845,LANGUAGE,english
+846,CARDINAL,60100
+847,GPE,klaudiaio
+848,DATE,annual
+849,NORP,adrian
+850,CARDINAL,41
+851,DATE,80 08
+852,DATE,at least 4 years
+853,CARDINAL,8
+854,CARDINAL,at least one
+855,PERSON,quarkus
+856,PERSON,scum kanban
+857,PERSON,eu
+858,DATE,daily
+859,NORP,french
+860,NORP,swiss
+861,NORP,european
+862,DATE,at least 5 years
+863,PERSON,java developmentin
+864,ORG,bac5
+865,ORG,java development
+866,GPE,eu
+867,CARDINAL,more than 3000
+868,DATE,quarterly
+869,DATE,tuesday
+870,ORDINAL,1st
+871,DATE,an esn new year
+872,NORP,german
+873,PERSON,java jee spring
+874,PERSON,javascript
+875,CARDINAL,more than one
+876,ORG,git maven
+877,NORP,german
+878,ORDINAL,second
+879,NORP,smilewe
+880,CARDINAL,076
+881,CARDINAL,341
+882,CARDINAL,30
+883,CARDINAL,58
+884,DATE,6 8005
+885,CARDINAL,one
+886,GPE,hibernatejpa
+887,ORDINAL,first
+888,CARDINAL,one
+889,GPE,java
+890,PERSON,java sejava
+891,PERSON,oracleweb
+892,NORP,german
+893,CARDINAL,6555
+894,PERSON,baer
+895,CARDINAL,between 60 and 100
+896,GPE,java
+897,ORDINAL,3rd
+898,CARDINAL,two
+899,DATE,several years
+900,NORP,german
+901,NORP,english
+902,TIME,hours
+903,DATE,vacation days
+904,DATE,vacation week
+905,GPE,zurich
+906,LOC,europe
+907,GPE,us
+908,CARDINAL,29
+909,LANGUAGE,english
+910,LANGUAGE,english
+911,ORDINAL,3rd
+912,GPE,kotlin
+913,PERSON,java linuxunix
+914,PERSON,shell knowhow
+915,LANGUAGE,english
+916,GPE,kotlin
+917,PERSON,apache kafka sqs
+918,TIME,working hours
+919,DATE,25 days
+920,DATE,monthly
+921,GPE,zurich
+922,CARDINAL,3
+923,PERSON,max
+924,CARDINAL,3
+925,LANGUAGE,english
+926,GPE,zurich
+927,NORP,arvr
+928,CARDINAL,3d
+929,CARDINAL,3d
