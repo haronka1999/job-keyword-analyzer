@@ -100,7 +100,7 @@ def extract_keywords(preprocessed_jd, methods):
         print(f"\n[INFO] Extracting keywords using {method.upper()}...")
 
         if method == "keybert":
-            keywords = get_keywords.get_keywords_by_KeyBERT(preprocessed_jd)
+            keywords = get_keywords.get_keywords_by_keybert(preprocessed_jd)
             keywords_dict["keybert"] = keywords
 
         elif method == "spacy":
@@ -108,11 +108,11 @@ def extract_keywords(preprocessed_jd, methods):
             keywords_dict["spacy"] = keywords
 
         elif method == "yake":
-            get_keywords.get_keywords_by_YAKE(preprocessed_jd)
+            get_keywords.get_keywords_by_yake(preprocessed_jd)
             print("[INFO] YAKE results displayed above")
 
         elif method == "rake":
-            get_keywords.get_keywords_by_Rake(preprocessed_jd)
+            get_keywords.get_keywords_by_rake(preprocessed_jd)
             print("[INFO] RAKE results saved to resources/rake_nltk.txt")
 
     return keywords_dict
