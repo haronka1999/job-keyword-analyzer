@@ -11,13 +11,12 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.ui import WebDriverWait
 
 """
-This file is related to job edscription scraping
+This file is related to job description scraping
 """
 
 postings_name = "Java"
 country = "Switzerland"
 country_geo_id = "106693272"
-file_name = "job_description.txt"
 
 
 def get_job_description_url_list():

@@ -41,6 +41,7 @@ def get_keywords_by_keybert(jobs):
     )
     for i in keywords:
         print(i)
+    return keywords
 
 
 def get_keywords_by_rake(text):
