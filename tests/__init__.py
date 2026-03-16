@@ -1,1 +1,1 @@
-"""Test suite for LinkedIn Job Post Analysis Tool."""
+"""Test suite for Job Keyword Analyzer."""

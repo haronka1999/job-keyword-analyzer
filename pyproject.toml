@@ -1,7 +1,7 @@
 [project]
 name = "linkedin-job-analysis"
 version = "0.1.0"
-description = "LinkedIn Job Post Analysis Tool - A Python application that scrapes LinkedIn job postings, preprocesses text data, extracts keywords using multiple NLP methods, and generates word cloud visualizations"
+description = "Job Keyword Analyzer - A Python application that scrapes LinkedIn job postings, preprocesses text data, extracts keywords using multiple NLP methods, and generates word cloud visualizations"
 readme = "README.md"
 requires-python = ">=3.8"
 authors = [

@@ -1,4 +1,4 @@
-"""Configuration settings and constants for LinkedIn Job Post Analysis Tool."""
+"""Configuration settings and constants for Job Keyword Analyzer."""
 
 CONTRACTION_MAP = {
     "ain't": "is not",

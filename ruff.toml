@@ -1,4 +1,4 @@
-# Ruff configuration for LinkedIn Job Post Analysis
+# Ruff configuration for Job Keyword Analyzer
 
 # Target Python 3.8+ (adjust based on your project requirements)
 target-version = "py38"

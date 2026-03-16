@@ -29,7 +29,7 @@ A Python application that scrapes LinkedIn job postings, preprocesses text data,
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd LinkedIn_Job_Post_Analysis
+cd job-keyword-analyzer
 ```
 
 2. Create and activate virtual environment:

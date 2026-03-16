@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-LinkedIn Job Post Analysis Tool - A Python application that scrapes LinkedIn job postings, preprocesses the text data, extracts keywords using multiple NLP methods, and generates word cloud visualizations.
+Job Keyword Analyzer - A Python application that scrapes LinkedIn job postings, preprocesses the text data, extracts keywords using multiple NLP methods, and generates word cloud visualizations.
 
 ## Installation
 

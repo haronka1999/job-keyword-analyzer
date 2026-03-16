@@ -1,4 +1,4 @@
-"""Main entry point for LinkedIn Job Post Analysis Tool."""
+"""Main entry point for Job Keyword Analyzer."""
 
 import os
 
@@ -106,7 +106,7 @@ def extract_keywords(preprocessed_jd, methods):
 def main():
     """Main function that orchestrates the job analysis workflow."""
     print("\n" + "=" * 60)
-    print("LinkedIn Job Post Analysis Tool")
+    print("Job Keyword Analyzer")
     print("=" * 60 + "\n")
 
     config = load_config()
