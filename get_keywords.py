@@ -1,7 +1,21 @@
+import os
+
 import spacy
 import yake
 from keybert import KeyBERT
 from rake_nltk import Rake
+
+from resources.constants import (
+    OUTPUT_DIR,
+    RAKE_MAX_LENGTH,
+    RAKE_MIN_LENGTH,
+    RAKE_MIN_SCORE,
+    RAKE_OUTPUT_FILE,
+    SPACY_MODEL,
+    YAKE_DEDUPLICATION_THRESHOLD,
+    YAKE_MAX_NGRAM_SIZE,
+    YAKE_NUM_KEYWORDS,
+)
 
 """
 RESPONSIBLE FOR APPLYING LANGUAGE MODELS TO THE PREPROCESSED TEXT
@@ -9,7 +23,16 @@ RESPONSIBLE FOR APPLYING LANGUAGE MODELS TO THE PREPROCESSED TEXT
 
 
 def get_keywords_by_spacy(jobs):
-    nlp = spacy.load("en_core_web_sm")
+    """
+    Extract named entities from text using spaCy.
+
+    Args:
+        jobs (str): Preprocessed job description text
+
+    Returns:
+        list: List of extracted entity texts
+    """
+    nlp = spacy.load(SPACY_MODEL)
     doc = nlp(jobs)
     keywords = []
     for ent in doc.ents:
@@ -19,14 +42,20 @@ def get_keywords_by_spacy(jobs):
 
 
 def get_keywords_by_yake(jobs):
-    max_ngram_size = 3
-    deduplication_threshold = 0.7
-    num_of_keywords = 20
+    """
+    Extract keywords using YAKE (Yet Another Keyword Extractor).
+
+    Args:
+        jobs (str): Preprocessed job description text
+
+    Returns:
+        list: List of (keyword, score) tuples
+    """
     custom_kw_extractor = yake.KeywordExtractor(
         lan="en",
-        n=max_ngram_size,
-        dedupLim=deduplication_threshold,
-        top=num_of_keywords,
+        n=YAKE_MAX_NGRAM_SIZE,
+        dedupLim=YAKE_DEDUPLICATION_THRESHOLD,
+        top=YAKE_NUM_KEYWORDS,
         features=None,
     )
     keywords = custom_kw_extractor.extract_keywords(jobs)
@@ -36,6 +65,15 @@ def get_keywords_by_yake(jobs):
 
 
 def get_keywords_by_keybert(jobs):
+    """
+    Extract keywords using KeyBERT (BERT-based keyword extraction).
+
+    Args:
+        jobs (str): Preprocessed job description text
+
+    Returns:
+        list: List of (keyword, relevance_score) tuples
+    """
     kw_model = KeyBERT()
     keywords = kw_model.extract_keywords(
         jobs, keyphrase_ngram_range=(1, 2), stop_words="english"
@@ -46,10 +84,29 @@ def get_keywords_by_keybert(jobs):
 
 
 def get_keywords_by_rake(text):
-    r = Rake(min_length=1, max_length=3, include_repeated_phrases=False)
+    """
+    Extract keywords using RAKE (Rapid Automatic Keyword Extraction).
+
+    Saves results to a file with keywords and their scores.
+
+    Args:
+        text (str): Preprocessed job description text
+
+    Returns:
+        None (saves results to file)
+    """
+    r = Rake(
+        min_length=RAKE_MIN_LENGTH,
+        max_length=RAKE_MAX_LENGTH,
+        include_repeated_phrases=False,
+    )
     r.extract_keywords_from_text(text)
-    with open("resources/rake_nltk.txt", "w") as file:
+
+    # Ensure output directory exists
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+    with open(RAKE_OUTPUT_FILE, "w") as file:
         for rating, keyword in r.get_ranked_phrases_with_scores():
-            if rating > 5:
+            if rating > RAKE_MIN_SCORE:
                 file.write(f"({keyword}, {rating})\n")
-    print("The Rake tuples have been saved to resources/rake_nltk")
+    print(f"The Rake tuples have been saved to {RAKE_OUTPUT_FILE}")

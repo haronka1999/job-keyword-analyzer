@@ -8,10 +8,21 @@ from wordcloud import WordCloud
 
 import get_keywords
 import utils
+from resources.constants import (
+    CONFIG_FILE,
+    FILENAME_RANDOM_MAX,
+    FILENAME_RANDOM_MIN,
+    WORDCLOUD_BG_COLOR,
+    WORDCLOUD_FIGURE_SIZE,
+    WORDCLOUD_HEIGHT,
+    WORDCLOUD_MIN_FONT_SIZE,
+    WORDCLOUD_OUTPUT_DIR,
+    WORDCLOUD_WIDTH,
+)
 from scrape_methods import get_job_description_url_list, scrape_job_description
 
 
-def load_config(config_path="input.yaml"):
+def load_config(config_path=CONFIG_FILE):
     """Load configuration from YAML file."""
     if not os.path.exists(config_path):
         print(f"[ERROR] Configuration file not found: {config_path}")
@@ -123,25 +134,28 @@ def generate_wordcloud(keywords_list, job_title, num_jobs, display=False):
         nltk.download("stopwords", quiet=True)
 
     wordcloud = WordCloud(
-        width=800,
-        height=800,
-        background_color="black",
+        width=WORDCLOUD_WIDTH,
+        height=WORDCLOUD_HEIGHT,
+        background_color=WORDCLOUD_BG_COLOR,
         stopwords=nltk.corpus.stopwords.words("english"),
-        min_font_size=10,
+        min_font_size=WORDCLOUD_MIN_FONT_SIZE,
     ).generate(" ".join(keywords_list))
 
-    plt.figure(figsize=(10, 10), facecolor="Black")
+    plt.figure(figsize=WORDCLOUD_FIGURE_SIZE, facecolor="Black")
     plt.imshow(wordcloud)
     plt.axis("off")
     plt.tight_layout(pad=0)
 
-    os.makedirs("resources/images", exist_ok=True)
+    os.makedirs(WORDCLOUD_OUTPUT_DIR, exist_ok=True)
 
-    p_name = "_".join(job_title.split())
-    f_path = f"resources/images/{p_name}-{num_jobs}_{random.randint(10000,99999)}.png"
+    sanitized_job_title = "_".join(job_title.split())
+    output_path = (
+        f"{WORDCLOUD_OUTPUT_DIR}/{sanitized_job_title}-{num_jobs}_"
+        f"{random.randint(FILENAME_RANDOM_MIN, FILENAME_RANDOM_MAX)}.png"
+    )
 
-    plt.savefig(f_path)
-    print(f"[INFO] Word cloud saved to {f_path}")
+    plt.savefig(output_path)
+    print(f"[INFO] Word cloud saved to {output_path}")
 
     if display:
         plt.show()
