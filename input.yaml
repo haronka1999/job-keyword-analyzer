@@ -1,0 +1,37 @@
+# LinkedIn Job Post Analysis Configuration
+
+# Data source configuration
+data_source:
+  # Options: 'scrape' or 'existing'
+  mode: 'existing'
+
+  # File path for job descriptions
+  file_path: 'resources/job_descriptions.txt'
+
+# Scraping configuration (only used when mode is 'scrape')
+scraping:
+  job_title: 'Java'
+  country: 'Switzerland'
+  country_geo_id: '106693272'
+
+# Keyword extraction methods
+# Available: keybert, spacy, yake, rake
+# Use list format to select multiple methods
+keyword_extraction:
+  methods:
+    - keybert
+    - spacy
+    - yake
+    - rake
+
+# Word cloud configuration
+word_cloud:
+  # Enable or disable word cloud generation
+  enabled: true
+
+  # Display the word cloud (true/false)
+  display: false
+
+  # Source for word cloud keywords (must be one of the enabled methods)
+  # Only 'spacy' generates keywords suitable for word clouds
+  source: 'spacy'

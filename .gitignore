@@ -3,7 +3,7 @@
 .venv
 # Ignore compiled Python files
 __pycache__/
-resources/
+resources/images
 # Ignore virtual environment folders (commonly used with Python)
 venv/
 env/
