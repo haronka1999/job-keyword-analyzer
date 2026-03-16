@@ -6,13 +6,12 @@ data_source:
   mode: 'existing'
 
   # File path for job descriptions
-  file_path: 'resources/job_descriptions.txt'
+  file_path: 'data/raw/job_descriptions.txt'
 
 # Scraping configuration (only used when mode is 'scrape')
 scraping:
   job_title: 'Java'
-  country: 'Switzerland'
-  country_geo_id: '106693272'
+  location: 'switzerland'  # Use location name from geo database (case-insensitive)
 
 # Keyword extraction methods
 # Available: keybert, spacy, yake, rake
@@ -20,9 +19,9 @@ scraping:
 keyword_extraction:
   methods:
     - keybert
-    - spacy
-    - yake
-    - rake
+    # - spacy
+    # - yake
+    # - rake
 
 # Word cloud configuration
 word_cloud:
@@ -31,7 +30,3 @@ word_cloud:
 
   # Display the word cloud (true/false)
   display: false
-
-  # Source for word cloud keywords (must be one of the enabled methods)
-  # Only 'spacy' generates keywords suitable for word clouds
-  source: 'spacy'

@@ -1,58 +1,38 @@
+"""Main entry point for LinkedIn Job Post Analysis Tool."""
+
 import os
-import random
 
-import matplotlib.pyplot as plt
-import nltk
-import yaml
-from wordcloud import WordCloud
-
-import get_keywords
-import utils
-from resources.constants import (
-    CONFIG_FILE,
-    FILENAME_RANDOM_MAX,
-    FILENAME_RANDOM_MIN,
-    WORDCLOUD_BG_COLOR,
-    WORDCLOUD_FIGURE_SIZE,
-    WORDCLOUD_HEIGHT,
-    WORDCLOUD_MIN_FONT_SIZE,
-    WORDCLOUD_OUTPUT_DIR,
-    WORDCLOUD_WIDTH,
+from src.linkedin_job_analysis.config.geo_database import get_geo_id
+from src.linkedin_job_analysis.config.loader import load_config
+from src.linkedin_job_analysis.config.settings import WORDCLOUD_KEYWORD_SOURCE
+from src.linkedin_job_analysis.extraction import extractors
+from src.linkedin_job_analysis.preprocessing.pipeline import preprocess_data
+from src.linkedin_job_analysis.scraping.linkedin_scraper import (
+    get_job_description_url_list,
+    scrape_job_description,
 )
-from scrape_methods import get_job_description_url_list, scrape_job_description
-
-
-def load_config(config_path=CONFIG_FILE):
-    """Load configuration from YAML file."""
-    if not os.path.exists(config_path):
-        print(f"[ERROR] Configuration file not found: {config_path}")
-        print("[INFO] Please create an input.yaml file with the required configuration")
-        exit(1)
-
-    with open(config_path, encoding="utf-8") as file:
-        config = yaml.safe_load(file)
-
-    return config
-
-
-def print_header():
-    """Print the application header."""
-    print("\n" + "=" * 60)
-    print("LinkedIn Job Post Analysis Tool")
-    print("=" * 60 + "\n")
+from src.linkedin_job_analysis.visualization.wordcloud import generate_wordcloud
 
 
 def scrape_new_jobs(config, file_path):
     """Scrape new job descriptions from LinkedIn."""
     scraping_config = config["scraping"]
     job_title = scraping_config["job_title"]
-    country = scraping_config["country"]
-    country_geo_id = scraping_config["country_geo_id"]
+    location = scraping_config["location"]
 
     print("\n[INFO] Starting job scraping process...")
-    print(f"[INFO] Searching for '{job_title}' positions in {country}")
 
-    link_list = get_job_description_url_list(job_title, country, country_geo_id)
+    # Lookup geo ID from location name
+    try:
+        country_geo_id = get_geo_id(location)
+        print(f"[INFO] Location: {location} (Geo ID: {country_geo_id})")
+    except ValueError as e:
+        print(f"[ERROR] {e}")
+        return None, None
+
+    print(f"[INFO] Searching for '{job_title}' positions in {location}")
+
+    link_list = get_job_description_url_list(job_title, location, country_geo_id)
     print(f"[INFO] Found {len(link_list)} job postings")
 
     job_description_list = scrape_job_description(link_list)
@@ -91,7 +71,7 @@ def preprocess_jobs(job_description_list):
     """Preprocess job descriptions."""
     print("\n[INFO] Preprocessing job descriptions...")
     job_description_string = " ".join(job_description_list)
-    preprocessed_jd = utils.preprocess_data(job_description_string)
+    preprocessed_jd = preprocess_data(job_description_string)
     print("[INFO] Preprocessing complete")
     return preprocessed_jd
 
@@ -105,67 +85,29 @@ def extract_keywords(preprocessed_jd, methods):
         print(f"\n[INFO] Extracting keywords using {method.upper()}...")
 
         if method == "keybert":
-            keywords = get_keywords.get_keywords_by_keybert(preprocessed_jd)
+            keywords = extractors.get_keywords_by_keybert(preprocessed_jd)
             keywords_dict["keybert"] = keywords
 
         elif method == "spacy":
-            keywords = get_keywords.get_keywords_by_spacy(preprocessed_jd)
+            keywords = extractors.get_keywords_by_spacy(preprocessed_jd)
             keywords_dict["spacy"] = keywords
 
         elif method == "yake":
-            get_keywords.get_keywords_by_yake(preprocessed_jd)
+            extractors.get_keywords_by_yake(preprocessed_jd)
             print("[INFO] YAKE results displayed above")
 
         elif method == "rake":
-            get_keywords.get_keywords_by_rake(preprocessed_jd)
-            print("[INFO] RAKE results saved to resources/rake_nltk.txt")
+            extractors.get_keywords_by_rake(preprocessed_jd)
+            print("[INFO] RAKE results saved to data/results/rake_nltk.txt")
 
     return keywords_dict
 
 
-def generate_wordcloud(keywords_list, job_title, num_jobs, display=False):
-    """Generate and save word cloud visualization."""
-    print("\n[INFO] Generating word cloud...")
-
-    try:
-        nltk.corpus.stopwords.words("english")
-    except LookupError:
-        print("[INFO] Downloading NLTK stopwords...")
-        nltk.download("stopwords", quiet=True)
-
-    wordcloud = WordCloud(
-        width=WORDCLOUD_WIDTH,
-        height=WORDCLOUD_HEIGHT,
-        background_color=WORDCLOUD_BG_COLOR,
-        stopwords=nltk.corpus.stopwords.words("english"),
-        min_font_size=WORDCLOUD_MIN_FONT_SIZE,
-    ).generate(" ".join(keywords_list))
-
-    plt.figure(figsize=WORDCLOUD_FIGURE_SIZE, facecolor="Black")
-    plt.imshow(wordcloud)
-    plt.axis("off")
-    plt.tight_layout(pad=0)
-
-    os.makedirs(WORDCLOUD_OUTPUT_DIR, exist_ok=True)
-
-    sanitized_job_title = "_".join(job_title.split())
-    output_path = (
-        f"{WORDCLOUD_OUTPUT_DIR}/{sanitized_job_title}-{num_jobs}_"
-        f"{random.randint(FILENAME_RANDOM_MIN, FILENAME_RANDOM_MAX)}.png"
-    )
-
-    plt.savefig(output_path)
-    print(f"[INFO] Word cloud saved to {output_path}")
-
-    if display:
-        plt.show()
-    else:
-        plt.close()
-
-
 def main():
-    """Main function that reads configuration from YAML file."""
-    print_header()
+    """Main function that orchestrates the job analysis workflow."""
+    print("\n" + "=" * 60)
+    print("LinkedIn Job Post Analysis Tool")
+    print("=" * 60 + "\n")
 
     config = load_config()
 
@@ -177,6 +119,9 @@ def main():
 
     if data_source_mode == "scrape":
         job_description_list, job_title = scrape_new_jobs(config, file_path)
+        if job_description_list is None:
+            print("[ERROR] Scraping failed. Please check the location configuration.")
+            return
     elif data_source_mode == "existing":
         job_description_list = read_existing_jobs(file_path)
         if job_description_list is None:
@@ -188,7 +133,6 @@ def main():
         print("[INFO] Valid modes are: 'scrape' or 'existing'")
         return
 
-    # Validate that we have job descriptions to process
     if not job_description_list:
         print("[ERROR] No job descriptions found. Cannot proceed with analysis.")
         return
@@ -201,19 +145,22 @@ def main():
 
     word_cloud_config = config.get("word_cloud", {})
     if word_cloud_config.get("enabled", False):
-        source_method = word_cloud_config.get("source", "spacy")
-        if source_method in keywords_dict and keywords_dict[source_method]:
+        if (
+            WORDCLOUD_KEYWORD_SOURCE in keywords_dict
+            and keywords_dict[WORDCLOUD_KEYWORD_SOURCE]
+        ):
             display = word_cloud_config.get("display", False)
             generate_wordcloud(
-                keywords_dict[source_method],
+                keywords_dict[WORDCLOUD_KEYWORD_SOURCE],
                 job_title,
                 len(job_description_list),
                 display,
             )
         else:
             print(
-                f"[WARNING] Cannot generate word cloud: {source_method} method "
-                f"not available or returned no keywords"
+                f"[WARNING] Word cloud generation requires '{WORDCLOUD_KEYWORD_SOURCE}'"
+                f"method. Please add '{WORDCLOUD_KEYWORD_SOURCE}'"
+                f"to keyword_extraction methods in config/input.yaml"
             )
 
     print("\n" + "=" * 60)

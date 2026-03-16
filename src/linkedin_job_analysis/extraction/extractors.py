@@ -1,3 +1,5 @@
+"""Keyword extraction using multiple NLP methods."""
+
 import os
 
 import spacy
@@ -5,7 +7,7 @@ import yake
 from keybert import KeyBERT
 from rake_nltk import Rake
 
-from resources.constants import (
+from ..config.settings import (
     OUTPUT_DIR,
     RAKE_MAX_LENGTH,
     RAKE_MIN_LENGTH,
@@ -17,39 +19,32 @@ from resources.constants import (
     YAKE_NUM_KEYWORDS,
 )
 
-"""
-RESPONSIBLE FOR APPLYING LANGUAGE MODELS TO THE PREPROCESSED TEXT
-"""
-
 
 def get_keywords_by_spacy(jobs):
-    """
-    Extract named entities from text using spaCy.
+    """Extract named entities from text using spaCy.
 
     Args:
-        jobs (str): Preprocessed job description text
+        jobs: Preprocessed job description text
 
     Returns:
-        list: List of extracted entity texts
+        List of extracted entity texts
     """
     nlp = spacy.load(SPACY_MODEL)
     doc = nlp(jobs)
     keywords = []
     for ent in doc.ents:
         keywords.append(ent.text)
-        print(ent.text, ent.label_)
     return keywords
 
 
 def get_keywords_by_yake(jobs):
-    """
-    Extract keywords using YAKE (Yet Another Keyword Extractor).
+    """Extract keywords using YAKE (Yet Another Keyword Extractor).
 
     Args:
-        jobs (str): Preprocessed job description text
+        jobs: Preprocessed job description text
 
     Returns:
-        list: List of (keyword, score) tuples
+        List of (keyword, score) tuples
     """
     custom_kw_extractor = yake.KeywordExtractor(
         lan="en",
@@ -65,14 +60,13 @@ def get_keywords_by_yake(jobs):
 
 
 def get_keywords_by_keybert(jobs):
-    """
-    Extract keywords using KeyBERT (BERT-based keyword extraction).
+    """Extract keywords using KeyBERT (BERT-based keyword extraction).
 
     Args:
-        jobs (str): Preprocessed job description text
+        jobs: Preprocessed job description text
 
     Returns:
-        list: List of (keyword, relevance_score) tuples
+        List of (keyword, relevance_score) tuples
     """
     kw_model = KeyBERT()
     keywords = kw_model.extract_keywords(
@@ -84,13 +78,12 @@ def get_keywords_by_keybert(jobs):
 
 
 def get_keywords_by_rake(text):
-    """
-    Extract keywords using RAKE (Rapid Automatic Keyword Extraction).
+    """Extract keywords using RAKE (Rapid Automatic Keyword Extraction).
 
     Saves results to a file with keywords and their scores.
 
     Args:
-        text (str): Preprocessed job description text
+        text: Preprocessed job description text
 
     Returns:
         None (saves results to file)

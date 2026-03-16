@@ -1,0 +1,53 @@
+[project]
+name = "linkedin-job-analysis"
+version = "0.1.0"
+description = "LinkedIn Job Post Analysis Tool - A Python application that scrapes LinkedIn job postings, preprocesses text data, extracts keywords using multiple NLP methods, and generates word cloud visualizations"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    {name = "Aron", email = "your.email@example.com"}
+]
+keywords = ["linkedin", "job-analysis", "nlp", "web-scraping", "keyword-extraction"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "beautifulsoup4>=4.12.0",
+    "lxml>=4.9.0",
+    "requests>=2.31.0",
+    "selenium>=4.14.0",
+    "googletrans==3.1.0a0",
+    "nltk>=3.8.0",
+    "spacy>=3.7.0",
+    "yake>=0.4.8",
+    "rake-nltk>=1.0.6",
+    "keybert>=0.8.0",
+    "sentence-transformers>=2.2.0",
+    "wordcloud>=1.9.0",
+    "matplotlib>=3.8.0",
+    "langdetect>=1.0.9",
+    "PyYAML>=6.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/linkedin-job-analysis"
+Repository = "https://github.com/yourusername/linkedin-job-analysis.git"
+Issues = "https://github.com/yourusername/linkedin-job-analysis/issues"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+linkedin_job_analysis = ["py.typed"]

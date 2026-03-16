@@ -1,3 +1,5 @@
+"""LinkedIn job posting scraper using Selenium and BeautifulSoup."""
+
 import time
 import traceback
 
@@ -10,17 +12,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.ui import WebDriverWait
 
-from resources.constants import (
+from ..config.settings import (
     MAX_SCROLL_ATTEMPTS,
     PAGE_LOAD_TIMEOUT,
     REQUEST_DELAY,
     REQUEST_TIMEOUT,
     SCROLL_DELAY,
 )
-
-"""
-This file is related to job description scraping
-"""
 
 
 def get_job_description_url_list(postings_name, country, country_geo_id):

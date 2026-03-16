@@ -1,3 +1,5 @@
+"""Configuration settings and constants for LinkedIn Job Post Analysis Tool."""
+
 CONTRACTION_MAP = {
     "ain't": "is not",
     "aren't": "are not",
@@ -124,12 +126,12 @@ CONTRACTION_MAP = {
     "you've": "you have",
 }
 
-# File paths
-OUTPUT_DIR = "resources"
-PREPROCESSED_TEXT_FILE = f"{OUTPUT_DIR}/preprocessed_text.txt"
-RAKE_OUTPUT_FILE = f"{OUTPUT_DIR}/rake_nltk.txt"
-WORDCLOUD_OUTPUT_DIR = f"{OUTPUT_DIR}/images"
-CONFIG_FILE = "input.yaml"
+# File paths (relative to project root where main.py is run)
+OUTPUT_DIR = "data/results"
+PREPROCESSED_TEXT_FILE = "data/processed/preprocessed_text.txt"
+RAKE_OUTPUT_FILE = "data/results/rake_nltk.txt"
+WORDCLOUD_OUTPUT_DIR = "data/images"
+CONFIG_FILE = "config/input.yaml"
 
 # Web scraping configuration
 MAX_SCROLL_ATTEMPTS = 10
@@ -155,3 +157,6 @@ RAKE_MIN_LENGTH = 1
 RAKE_MAX_LENGTH = 3
 RAKE_MIN_SCORE = 5
 SPACY_MODEL = "en_core_web_sm"
+
+# Word cloud uses spaCy keywords (returns clean list of strings)
+WORDCLOUD_KEYWORD_SOURCE = "spacy"

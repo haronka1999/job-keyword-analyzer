@@ -1,19 +1,60 @@
-# Ignore the .env folder
+# Virtual environments
 .env/
-.venv
-# Ignore compiled Python files
-__pycache__/
-resources/images
-# Ignore virtual environment folders (commonly used with Python)
+.venv/
 venv/
 env/
 
-# Ignore log files
+# Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Data files (optionally track some of these)
+data/images/*.png
+data/results/*.txt
+data/results/*.csv
+data/processed/*.txt
+# Keep the directory structure
+!data/images/.gitkeep
+!data/results/.gitkeep
+!data/processed/.gitkeep
+!data/raw/.gitkeep
+
+# Log files
 *.log
 
-# Ignore database files
+# Database files
 *.db
 
-# Ignore IDE-specific files and folders
+# IDE-specific files and folders
 .idea/
 .vscode/
+*.swp
+*.swo
+*~
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Configuration (optionally uncomment to ignore)
+# config/input.yaml
