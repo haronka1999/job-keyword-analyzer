@@ -32,3 +32,4 @@ langdetect>=1.0.9
 
 # Utilities
 python-dateutil>=2.8.0
+PyYAML>=6.0.0
