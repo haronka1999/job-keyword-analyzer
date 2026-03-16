@@ -174,6 +174,11 @@ def main():
         print("[INFO] Valid modes are: 'scrape' or 'existing'")
         return
 
+    # Validate that we have job descriptions to process
+    if not job_description_list:
+        print("[ERROR] No job descriptions found. Cannot proceed with analysis.")
+        return
+
     preprocessed_jd = preprocess_jobs(job_description_list)
 
     methods = config["keyword_extraction"]["methods"]

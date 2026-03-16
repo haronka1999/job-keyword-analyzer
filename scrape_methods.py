@@ -20,50 +20,60 @@ def get_job_description_url_list(postings_name, country, country_geo_id):
     posit = "%20".join(postings_name.split())
     url = f"https://www.linkedin.com/jobs/search?keywords={posit}&location={country}&geoId={country_geo_id}&trk=public_jobs_jobs-search-bar_search-submit&position=1&pageNum=0"
 
-    # it says how many times should thepage be refreshed
+    # Tracks the number of scroll attempts to load more job postings
     numb_refresh_page = 0
 
     # opening url in Chrome browser
     print("Creating webdriver ... ")
-    options = webdriver.ChromeOptions()
-    options.add_experimental_option("excludeSwitches", ["enable-logging"])
-    options.add_experimental_option("detach", True)
-    options.add_argument("headless")
-    driver = webdriver.Chrome(options=options)
-    wait = WebDriverWait(driver, 2)
-    driver.get(url)
-    previous_height = driver.execute_script("return document.body.scrollHeight")
+    try:
+        options = webdriver.ChromeOptions()
+        options.add_experimental_option("excludeSwitches", ["enable-logging"])
+        options.add_experimental_option("detach", True)
+        options.add_argument("headless")
+        driver = webdriver.Chrome(options=options)
+        wait = WebDriverWait(driver, 2)
+        driver.get(url)
+        previous_height = driver.execute_script("return document.body.scrollHeight")
+    except Exception as e:
+        print("[ERROR] Failed to initialize Selenium WebDriver.")
+        print("Please ensure Chrome and ChromeDriver are installed:")
+        print("  - Install Chrome: https://www.google.com/chrome/")
+        print("  - Install ChromeDriver: https://chromedriver.chromium.org/")
+        print(f"Exception: {type(e).__name__}: {str(e)}")
+        return []
 
     print("Retrieving job posts URLs ...")
 
-    while True:
-        # scrolling to the bottom of body height (y coordinate)
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        # pausing for 1 sec to load
-        time.sleep(1)
-        # assigning webpage's increased body height in pixels
-        new_height = driver.execute_script("return document.body.scrollHeight")
-        if new_height == previous_height:
-            next_page_button = wait.until(
-                expected_conditions.element_to_be_clickable(
-                    (By.CLASS_NAME, "infinite-scroller__show-more-button")
+    try:
+        while True:
+            # scrolling to the bottom of body height (y coordinate)
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            # pausing for 1 sec to load
+            time.sleep(1)
+            # assigning webpage's increased body height in pixels
+            new_height = driver.execute_script("return document.body.scrollHeight")
+            if new_height == previous_height:
+                next_page_button = wait.until(
+                    expected_conditions.element_to_be_clickable(
+                        (By.CLASS_NAME, "infinite-scroller__show-more-button")
+                    )
                 )
-            )
-            next_page_button.click()
-            numb_refresh_page += 1
-            if numb_refresh_page == 10:
-                break
+                next_page_button.click()
+                numb_refresh_page += 1
+                if numb_refresh_page == 10:
+                    break
 
-        # updating previous height for the next loop
-        previous_height = new_height
-    print("Job posts retrieved.")
+            # updating previous height for the next loop
+            previous_height = new_height
+        print("Job posts retrieved.")
 
-    links = driver.find_elements(By.CLASS_NAME, "base-card__full-link")
-    links_list = [link.get_attribute("href") for link in links]
+        links = driver.find_elements(By.CLASS_NAME, "base-card__full-link")
+        links_list = [link.get_attribute("href") for link in links]
 
-    print("Number of links created " + str(len(links_list)))
-    driver.quit()
-    return links_list
+        print("Number of links created " + str(len(links_list)))
+        return links_list
+    finally:
+        driver.quit()
 
 
 def scrape_job_description(links_list):
@@ -71,15 +81,18 @@ def scrape_job_description(links_list):
     counter = 1
     # looping through the links
     for link in links_list:
-        # converting to BeautifulSoup
-        request = requests.get(link)
-        print(str(counter) + ". " + str(request))
-        soup = BeautifulSoup(request.text, "lxml")
-        # extracting text based in class
+        job_description = ""
         try:
+            # Network request with error handling
+            request = requests.get(link, timeout=10)
+            print(str(counter) + ". " + str(request))
+            soup = BeautifulSoup(request.text, "lxml")
+
+            # Extract text based on CSS class
             job_description = soup.find(
                 "div", class_="show-more-less-html__markup"
             ).get_text(separator=" ")
+
             lang = detect(job_description)
             # Translate to English
             if lang != "en":
@@ -88,6 +101,10 @@ def scrape_job_description(links_list):
                 job_description = translator.translate(
                     job_description, src=lang, dest="en"
                 ).text
+        except requests.exceptions.RequestException as e:
+            print("ERROR! Network request failed.")
+            print("Exception:", type(e).__name__)
+            print("Exception details:", str(e))
         except AttributeError as e:
             print("ERROR! Failed to find the desired element.")
             print("Exception:", type(e).__name__)
@@ -97,10 +114,13 @@ def scrape_job_description(links_list):
             print("ERROR! In retrieving data...")
             print("Exception:", type(e).__name__)
             print("Exception details:", str(e))
-        # # appending to a string and converting to lowercase
-        job_description = job_description.replace("\n", " ")
-        job_description_list.append(job_description)
-        # # pausing to avoid error 429
+
+        # Clean and append job description (skip if empty)
+        if job_description:
+            job_description = job_description.replace("\n", " ")
+            job_description_list.append(job_description)
+
+        # Pausing to avoid error 429
         time.sleep(0.6)
         counter += 1
     return job_description_list
