@@ -8,15 +8,20 @@ FUNCTIONS FOR PREPROCESSING THE DATA
 """
 
 
-def expand_contractions(text, map=CONTRACTION_MAP):
+def expand_contractions(text):
     pattern = re.compile(
-        "({})".format("|".join(map.keys())), flags=re.IGNORECASE | re.DOTALL
+        "({})".format("|".join(CONTRACTION_MAP.keys())),
+        flags=re.IGNORECASE | re.DOTALL,
     )
 
     def get_match(contraction):
         match = contraction.group(0)
         first_char = match[0]
-        expanded = map.get(match) if map.get(match) else map.get(match.lower())
+        expanded = (
+            CONTRACTION_MAP.get(match)
+            if CONTRACTION_MAP.get(match)
+            else CONTRACTION_MAP.get(match.lower())
+        )
         expanded = first_char + expanded[1:]
         return expanded
 

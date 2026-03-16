@@ -14,12 +14,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 This file is related to job description scraping
 """
 
-postings_name = "Java"
-country = "Switzerland"
-country_geo_id = "106693272"
 
-
-def get_job_description_url_list():
+def get_job_description_url_list(postings_name, country, country_geo_id):
     # building linkedin link
     posit = "%20".join(postings_name.split())
     url = f"https://www.linkedin.com/jobs/search?keywords={posit}&location={country}&geoId={country_geo_id}&trk=public_jobs_jobs-search-bar_search-submit&position=1&pageNum=0"
@@ -84,13 +80,11 @@ def scrape_job_description(links_list):
             job_description = soup.find(
                 "div", class_="show-more-less-html__markup"
             ).get_text(separator=" ")
-            print(job_description)
             lang = detect(job_description)
             # Translate to English
             if lang != "en":
                 print("Translation incoming from language: " + str(lang))
                 translator = Translator()
-                print(type(job_description))
                 job_description = translator.translate(
                     job_description, src=lang, dest="en"
                 ).text

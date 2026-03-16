@@ -32,6 +32,7 @@ def get_keywords_by_yake(jobs):
     keywords = custom_kw_extractor.extract_keywords(jobs)
     for kw in keywords:
         print(kw)
+    return keywords
 
 
 def get_keywords_by_keybert(jobs):
@@ -51,4 +52,4 @@ def get_keywords_by_rake(text):
         for rating, keyword in r.get_ranked_phrases_with_scores():
             if rating > 5:
                 file.write(f"({keyword}, {rating})\n")
-    print("The Rake tuples  has been saved to resources/rake_nltk")
+    print("The Rake tuples have been saved to resources/rake_nltk")

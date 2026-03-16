@@ -41,13 +41,7 @@ def scrape_new_jobs(config, file_path):
     print("\n[INFO] Starting job scraping process...")
     print(f"[INFO] Searching for '{job_title}' positions in {country}")
 
-    import scrape_methods
-
-    scrape_methods.postings_name = job_title
-    scrape_methods.country = country
-    scrape_methods.country_geo_id = country_geo_id
-
-    link_list = get_job_description_url_list()
+    link_list = get_job_description_url_list(job_title, country, country_geo_id)
     print(f"[INFO] Found {len(link_list)} job postings")
 
     job_description_list = scrape_job_description(link_list)
@@ -58,8 +52,8 @@ def scrape_new_jobs(config, file_path):
             file.write(f"{item}\n")
 
     print(
-        f"[INFO] Saved {len(job_description_list)} unique job \
-          descriptions to {file_path}"
+        f"[INFO] Saved {len(job_description_list)} unique job "
+        f"descriptions to {file_path}"
     )
     return job_description_list, job_title
 
